@@ -1,16 +1,13 @@
-name: Prime Cache Example
+name: Cache Test
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  cache-job:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: prime-cache-e7887ea
