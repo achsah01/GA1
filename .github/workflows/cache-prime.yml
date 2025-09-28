@@ -1,0 +1,24 @@
+name: Prime Cache Example
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  cache-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: prime-cache-e7887ea
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/example
+          key: cache-e7887ea
+
+      - name: Report cache status
+        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
